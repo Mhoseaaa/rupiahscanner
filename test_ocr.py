@@ -26,7 +26,7 @@ def detect_text(frame):
     return text
 
 # Menggunakan kamera
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0, cv2.CAP_AVFOUNDATION)
 
 while True:
     ret, frame = cap.read()

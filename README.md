@@ -11,4 +11,5 @@ pip install tesseract
 pip install matplotlib
 pip install torch torchvision
 pip install ultralytics
+pip install ultralytics opencv-python gtts playsound
 ```
