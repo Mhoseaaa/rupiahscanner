@@ -5,9 +5,9 @@ model = YOLO("yolov8n.pt")  # Anda bisa menggunakan 'yolov8s.pt', 'yolov8m.pt', 
 
 # Train model
 results = model.train(
-    data="/Users/Maik/AI/rupiahscanner/rupiah_dataset/rupiah.yaml",
+    data="C:\Users\itsho\OneDrive\Dokumen\GitHub\rupiahscanner\rupiah_dataset\rupiah.yaml",
     epochs=50,
     batch=8,
     imgsz=640,
-    device="cpu"  # Ubah dari '0' ke 'cpu'
+    device="cuda"
 )
