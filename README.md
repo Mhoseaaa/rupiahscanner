@@ -13,3 +13,7 @@ pip install torch torchvision
 pip install ultralytics
 pip install ultralytics opencv-python gtts playsound
 ```
+
+On macOS: brew install bazelisk.
+
+On Windows: choco install bazelisk.
