@@ -1,7 +1,7 @@
-path: C:\Users\itsho\OneDrive\Dokumen\GitHub\rupiahscanner\rupiah_dataset\rupiah.yaml  # Path ke file YAML
-train: C:\Users\itsho\OneDrive\Dokumen\GitHub\rupiahscanner\rupiah_dataset\train\images     # Path ke gambar training
-val: C:\Users\itsho\OneDrive\Dokumen\GitHub\rupiahscanner\rupiah_dataset\valid\images       # Path ke gambar validasi
-test: C:\Users\itsho\OneDrive\Dokumen\GitHub\rupiahscanner\rupiah_dataset\test\images       # Path ke gambar testing
+path: D:\AI\rupiahscanner\rupiah_dataset\rupiah.yaml  # Path ke file YAML
+train: D:\AI\rupiahscanner\rupiah_dataset\train\images     # Path ke gambar training
+val: D:\AI\rupiahscanner\rupiah_dataset\valid\images       # Path ke gambar validasi
+test: D:\AI\rupiahscanner\rupiah_dataset\test\images       # Path ke gambar testing
 
 # Jumlah kelas (sesuaikan dengan jumlah nominal uang Anda)
 nc: 7
