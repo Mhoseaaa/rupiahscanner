@@ -7,9 +7,12 @@ if __name__ == "__main__":
 
     # Train model
     results = model.train(
-        data="D:\\UKDW\\Semester4_2025\\KecerdasanBuatan_Gloria\\RupiahScanner\\rupiahscanner\\rupiah_dataset\\rupiah.yaml", #sesuaikan path ke rupiah.yaml
-        epochs=50,
+        data="D:\\UKDW\Semester4_2025\\KecerdasanBuatan_Gloria\\RupiahScanner\\rupiahscanner\\rupiah2_dataset\\data.yaml", #sesuaikan path ke rupiah.yaml
+        epochs=150,
+        patience=20,
         batch=8,
         imgsz=640,
-        device="cuda" # Kalau ndak punya VGA ganti ke "cpu"
+        device="cuda", # Kalau ndak punya VGA ganti ke "cpu"
+        augment=True,
+        name="rupiah_detector_v1"
     )

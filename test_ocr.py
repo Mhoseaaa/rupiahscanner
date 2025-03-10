@@ -3,7 +3,6 @@ import numpy as np
 from gtts import gTTS
 import os
 import pytesseract
-import pyttsx3
 from ultralytics import YOLO
 from threading import Thread
 import time
@@ -18,7 +17,7 @@ def speak_async(text):
     Thread(target=run, daemon=True).start()
 
 # Load model YOLOv8 untuk deteksi uang
-model = YOLO("yolov8n.pt")  # Ganti dengan model yang sudah dilatih untuk uang rupiah
+model = YOLO("best.pt")  # Ganti dengan model yang sudah dilatih untuk uang rupiah
 
 # Konfigurasi OCR
 pytesseract.pytesseract.tesseract_cmd = r"C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
