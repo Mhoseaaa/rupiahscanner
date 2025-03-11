@@ -3,7 +3,11 @@ val: valid/images
 test: test/images
 
 nc: 7
+<<<<<<< Updated upstream
 names: ['dua puluh ribu rupiah', 'dua ribu rupiah', 'lima puluh ribu rupiah', 'lima ribu rupiah', 'sepuluhribu rupiah', 'seratusribu rupiah', 'seribu rupiah']
+=======
+names: ['dua puluh ribu rupiah', 'dua ribu rupiah', 'lima puluh ribu rupiah', 'lima ribu rupiah', 'sepuluh ribu rupiah', 'seratus ribu rupiah', 'seribu rupiah']
+>>>>>>> Stashed changes
 
 roboflow:
   workspace: rupiah-detector
