@@ -12,6 +12,7 @@ pip install matplotlib
 pip install torch torchvision
 pip install ultralytics
 pip install ultralytics opencv-python gtts playsound
+pip install PyQt5
 ```
 
 On macOS: brew install bazelisk.
