@@ -1,11 +1,11 @@
 task: detect
 mode: train
-model: yolov8n.pt
-data: rupiah2_dataset\data.yaml
-epochs: 150
+model: yolo11m.pt
+data: rupiah2_dataset/data.yaml
+epochs: 100
 time: null
-patience: 20
-batch: 8
+patience: 100
+batch: 6
 imgsz: 640
 save: true
 save_period: -1
@@ -47,7 +47,7 @@ source: null
 vid_stride: 1
 stream_buffer: false
 visualize: false
-augment: true
+augment: false
 agnostic_nms: false
 classes: null
 retina_masks: false

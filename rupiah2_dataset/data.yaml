@@ -1,17 +1,13 @@
-train: train/images
-val: valid/images
-test: test/images
+train: C:/Users/itsho/OneDrive/Dokumen/Semester 4/rupiahscanner/rupiah2_dataset/train/images
+val: C:/Users/itsho/OneDrive/Dokumen/Semester 4/rupiahscanner/rupiah2_dataset/valid/images
+test: C:/Users/itsho/OneDrive/Dokumen/Semester 4/rupiahscanner/rupiah2_dataset/test/images
 
 nc: 7
-<<<<<<< Updated upstream
 names: ['dua puluh ribu rupiah', 'dua ribu rupiah', 'lima puluh ribu rupiah', 'lima ribu rupiah', 'sepuluhribu rupiah', 'seratusribu rupiah', 'seribu rupiah']
-=======
-names: ['dua puluh ribu rupiah', 'dua ribu rupiah', 'lima puluh ribu rupiah', 'lima ribu rupiah', 'sepuluh ribu rupiah', 'seratus ribu rupiah', 'seribu rupiah']
->>>>>>> Stashed changes
 
-roboflow:
-  workspace: rupiah-detector
-  project: rupiah-detector-qzmb7
-  version: 8
-  license: CC BY 4.0
-  url: https://universe.roboflow.com/rupiah-detector/rupiah-detector-qzmb7/dataset/8
+# roboflow:
+#   workspace: rupiah-detector
+#   project: rupiah-detector-qzmb7
+#   version: 8
+#   license: CC BY 4.0
+#   url: https://universe.roboflow.com/rupiah-detector/rupiah-detector-qzmb7/dataset/8

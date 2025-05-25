@@ -1,17 +1,10 @@
-<<<<<<< Updated upstream
-path: D:\UKDW\Semester4_2025\KecerdasanBuatan_Gloria\RupiahScanner\rupiahscanner\rupiah_dataset\rupiah.yaml  # Path ke file YAML
-train: D:\UKDW\Semester4_2025\KecerdasanBuatan_Gloria\RupiahScanner\rupiahscanner\rupiah_dataset\train     # Path ke gambar training
-val: D:\UKDW\Semester4_2025\KecerdasanBuatan_Gloria\RupiahScanner\rupiahscanner\rupiah_dataset\valid       # Path ke gambar validasi
-test: D:\UKDW\Semester4_2025\KecerdasanBuatan_Gloria\RupiahScanner\rupiahscanner\rupiah_dataset\test      # Path ke gambar testing
-=======
-path: D:\UKDW\Semester4_2025\KecerdasanBuatan_Gloria\RupiahScanner\rupiahscannerV2\rupiah_dataset\rupiah.yaml  # Path ke file YAML
-train: D:\UKDW\Semester4_2025\KecerdasanBuatan_Gloria\RupiahScanner\rupiahscannerV2\rupiah_dataset\train\images     # Path ke gambar training
-val: D:\UKDW\Semester4_2025\KecerdasanBuatan_Gloria\RupiahScanner\rupiahscannerV2\rupiah_dataset\valid\images      # Path ke gambar validasi
-test: D:\UKDW\Semester4_2025\KecerdasanBuatan_Gloria\RupiahScanner\rupiahscannerV2\rupiah_dataset\test\images      # Path ke gambar testing
->>>>>>> Stashed changes
+# path: rupiah_dataset\rupiah.yaml  # Path ke file YAML
+# train: rupiahscanner\rupiah_dataset\train     # Path ke gambar training
+# val: rupiah_dataset\valid       # Path ke gambar validasi
+# test: rupiah_dataset\test      # Path ke gambar testing
 
-# Jumlah kelas (sesuaikan dengan jumlah nominal uang Anda)
-nc: 7
+# # Jumlah kelas (sesuaikan dengan jumlah nominal uang Anda)
+# nc: 7
 
-# Nama kelas (sesuaikan dengan nominal uang Anda)
-names: ['1000', '2000', '5000', '10000', '20000', '50000', '100000']
+# # Nama kelas (sesuaikan dengan nominal uang Anda)
+# names: ['1000', '2000', '5000', '10000', '20000', '50000', '100000']
