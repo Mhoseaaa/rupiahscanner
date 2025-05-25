@@ -18,7 +18,7 @@ TESSERACT_CMD_PATH = r"C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
 # Daftar uang yang dikenali (pastikan ini sesuai dengan kelas di model YOLO Anda)
 CLASSES = ['dua puluh ribu rupiah', 'dua ribu rupiah', 'lima puluh ribu rupiah', 'lima ribu rupiah', 'sepuluhribu rupiah', 'seratusribu rupiah', 'seribu rupiah']
 # Ambang batas keyakinan untuk deteksi YOLO (0.0 - 1.0)
-YOLO_CONFIDENCE_THRESHOLD = 0.5 
+YOLO_CONFIDENCE_THRESHOLD = 0.9 
 
 # Waktu tunda (dalam detik) untuk pengulangan suara yang sama
 SPEECH_DELAY_SECONDS = 3 
@@ -56,18 +56,22 @@ def speak_async(text):
             last_spoken_time = current_time
             print(f"Mengucapkan: {text}")
 
-            audio_file = "rupiah_temp.mp3"
+            audio_file = f"rupiah_temp_{int(time.time()*1000)}.mp3"
             try:
                 tts = gTTS(text=text, lang="id")
                 tts.save(audio_file)
                 print("Memutar suara...")
                 os.system(f'start {audio_file}')
-                time.sleep(4)  # Tambah waktu tunggu agar suara selesai diputar
+                time.sleep(4)  # Tunggu agar suara selesai diputar
             except Exception as e:
                 print(f"Gagal memutar suara: {e}")
             finally:
-                if os.path.exists(audio_file):
-                    os.remove(audio_file)
+                # Coba hapus file, jika gagal tidak masalah
+                try:
+                    if os.path.exists(audio_file):
+                        os.remove(audio_file)
+                except Exception:
+                    pass
         speech_lock.release()
     else:
         pass  # Suara sedang diputar, dilewati
