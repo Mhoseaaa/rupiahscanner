@@ -4,7 +4,15 @@ import os
 import pytesseract
 from ultralytics import YOLO
 import time
-from threading import Thread, Lock # Import Lock untuk mencegah suara tumpang tindih
+from threading import Thread, Lock
+import glob
+
+# --- Bersihkan file mp3 temp lama saat program mulai ---
+for f in glob.glob("rupiah_temp_*.mp3"):
+    try:
+        os.remove(f)
+    except Exception:
+        pass
 
 # --- Konfigurasi Penting ---
 # Ganti dengan PATH ABSOLUT atau RELATIF ke model YOLO Anda (YOLOv8 atau YOLOv11)
@@ -135,7 +143,7 @@ while True:
             # Pastikan label ada dalam daftar kelas yang dikenali
             if label in CLASSES:
                 # Panggil speak_async di thread terpisah
-                Thread(target=speak_async, args=(f"Terdeteksi uang {label} rupiah",)).start()
+                Thread(target=speak_async, args=(f"Terdeteksi uang {label}",)).start()
                 yolo_detected_this_frame = True
 
                 # Gambar kotak deteksi
