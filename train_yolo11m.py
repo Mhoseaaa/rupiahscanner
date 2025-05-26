@@ -1,35 +1,47 @@
 from ultralytics import YOLO
+import time
 
 if __name__ == "__main__":
-    model = YOLO("yolo11m.pt")
-    max_epochs = 100
-    patience = 3  # jumlah epoch berturut-turut menurun
-    threshold = 0.9  # 90%
-    best_acc = 0
+    model = YOLO("yolo11m.pt") # Menggunakan model medium
+
+    max_epochs = 300 # Tingkatkan jumlah epoch total
+    patience = 20 # Tingkatkan kesabaran: jumlah epoch berturut-turut mAP menurun sebelum berhenti
+    # threshold = 0.9 # Hapus atau gunakan untuk logging saja, jangan untuk early stopping utama
+
+    # Variabel untuk early stopping
+    best_mAP = 0.0
     decrease_count = 0
-    last_acc = None
+    
+    print("Memulai pelatihan model YOLOv11...")
 
-    for epoch in range(max_epochs):
-        results = model.train(
-            data="rupiah2_dataset/data.yaml",
-            epochs=100,
-            imgsz=640,
-            # resume=True,
-            device="cuda",   # Ganti ke "cuda" jika GPU sudah terdeteksi
-            batch=6        # Batch kecil agar hemat memori
-        )
-        # Ambil metrik akurasi, misal mAP50
-        acc = results.metrics.get('mAP_0.5', 0)
+    # Panggil model.train() sekali saja dengan jumlah epoch total
+    results = model.train(
+        data="rupiah2_dataset/data.yaml",
+        epochs=max_epochs, # Jumlah epoch total
+        imgsz=640,
+        # resume=True, # Aktifkan jika ingin melanjutkan pelatihan dari checkpoint terakhir
+        device="cuda", # Pastikan ini "cuda" jika GPU terdeteksi, atau "cpu"
+        batch=6,       # Sesuaikan jika VRAM memungkinkan
+        # val=True, # Pastikan validasi berjalan untuk memantau metrik
+        # save_period=10, # Simpan checkpoint setiap 10 epoch
+        # project="rupiah_detector_training", # Nama folder project
+        # name="yolov11_rupiah_v1" # Nama run
+    )
 
-        print(f"Epoch {epoch+1}: mAP50={acc:.4f}")
+    # Setelah pelatihan selesai, Anda bisa mengakses metrik dari results.metrics
+    # Atau, jika Anda ingin early stopping manual di luar loop train (tidak disarankan untuk Ultralytics)
+    # Anda bisa memparsing output log Ultralytics atau menggunakan callbacks.
 
-        if last_acc is not None and acc < last_acc:
-            decrease_count += 1
-        else:
-            decrease_count = 0
+    # Catatan: Ultralytics memiliki early stopping bawaan yang bisa diatur via parameter 'patience'
+    # di dalam model.train(). Jika Anda ingin menggunakan early stopping bawaan Ultralytics,
+    # Anda bisa menghapus logika early stopping manual Anda dan cukup tambahkan:
+    # results = model.train(..., patience=50) # Akan berhenti jika mAP tidak meningkat selama 50 epoch
 
-        if acc >= threshold and decrease_count >= patience:
-            print("Akurasi menurun terus hingga 90%, training dihentikan.")
-            break
+    print("Pelatihan selesai.")
+    print(f"Metrik akhir: {results.metrics}")
 
-        last_acc = acc
+    # Jika Anda ingin memantau dan menghentikan secara manual (tidak disarankan untuk Ultralytics,
+    # lebih baik gunakan fitur patience bawaan):
+    # Untuk memantau metrik selama pelatihan, Anda perlu menggunakan callbacks atau
+    # memparsing output log yang dicetak oleh Ultralytics saat pelatihan.
+    # Contoh di atas adalah cara yang lebih umum untuk menjalankan pelatihan penuh.
