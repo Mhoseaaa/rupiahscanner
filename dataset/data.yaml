@@ -1,6 +1,6 @@
-train: C:/Users/itsho/OneDrive/Dokumen/Semester 4/rupiahscanner/rupiah2_dataset/train/images
-val: C:/Users/itsho/OneDrive/Dokumen/Semester 4/rupiahscanner/rupiah2_dataset/valid/images
-test: C:/Users/itsho/OneDrive/Dokumen/Semester 4/rupiahscanner/rupiah2_dataset/test/images
+train: C:/Users/itsho/OneDrive/Dokumen/Semester 4/rupiahscanner/dataset/train/images
+val: C:/Users/itsho/OneDrive/Dokumen/Semester 4/rupiahscanner/dataset/valid/images
+test: C:/Users/itsho/OneDrive/Dokumen/Semester 4/rupiahscanner/dataset/test/images
 
 nc: 7
 names: ['dua puluh ribu rupiah', 'dua ribu rupiah', 'lima puluh ribu rupiah', 'lima ribu rupiah', 'sepuluhribu rupiah', 'seratusribu rupiah', 'seribu rupiah']

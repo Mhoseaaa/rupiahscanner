@@ -6,24 +6,20 @@ if __name__ == "__main__":
 
     max_epochs = 300 # Tingkatkan jumlah epoch total
     patience = 20 # Tingkatkan kesabaran: jumlah epoch berturut-turut mAP menurun sebelum berhenti
-    # threshold = 0.9 # Hapus atau gunakan untuk logging saja, jangan untuk early stopping utama
-
-    # Variabel untuk early stopping
-    best_mAP = 0.0
-    decrease_count = 0
+    threshold = 0.9 # Hapus atau gunakan untuk logging saja, jangan untuk early stopping utama
     
     print("Memulai pelatihan model YOLOv11...")
 
     # Panggil model.train() sekali saja dengan jumlah epoch total
     results = model.train(
-        data="rupiah2_dataset/data.yaml",
+        data="dataset/data.yaml",
         epochs=max_epochs, # Jumlah epoch total
         imgsz=640,
         # resume=True, # Aktifkan jika ingin melanjutkan pelatihan dari checkpoint terakhir
         device="cuda", # Pastikan ini "cuda" jika GPU terdeteksi, atau "cpu"
         batch=6,       # Sesuaikan jika VRAM memungkinkan
-        # val=True, # Pastikan validasi berjalan untuk memantau metrik
-        # save_period=10, # Simpan checkpoint setiap 10 epoch
+        val=True, # Pastikan validasi berjalan untuk memantau metrik
+        save_period=10, # Simpan checkpoint setiap 10 epoch
         # project="rupiah_detector_training", # Nama folder project
         # name="yolov11_rupiah_v1" # Nama run
     )
@@ -35,7 +31,6 @@ if __name__ == "__main__":
     # Catatan: Ultralytics memiliki early stopping bawaan yang bisa diatur via parameter 'patience'
     # di dalam model.train(). Jika Anda ingin menggunakan early stopping bawaan Ultralytics,
     # Anda bisa menghapus logika early stopping manual Anda dan cukup tambahkan:
-    # results = model.train(..., patience=50) # Akan berhenti jika mAP tidak meningkat selama 50 epoch
 
     print("Pelatihan selesai.")
     print(f"Metrik akhir: {results.metrics}")
