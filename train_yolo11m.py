@@ -4,15 +4,15 @@ import time
 if __name__ == "__main__":
     model = YOLO("yolo11m.pt") # Menggunakan model medium
 
-    max_epochs = 300 # Tingkatkan jumlah epoch total
-    patience = 20 # Tingkatkan kesabaran: jumlah epoch berturut-turut mAP menurun sebelum berhenti
+    max_epochs = 100 # Tingkatkan jumlah epoch total
+    patience = 30 # Tingkatkan kesabaran: jumlah epoch berturut-turut mAP menurun sebelum berhenti
     threshold = 0.9 # Hapus atau gunakan untuk logging saja, jangan untuk early stopping utama
     
     print("Memulai pelatihan model YOLOv11...")
 
     # Panggil model.train() sekali saja dengan jumlah epoch total
     results = model.train(
-        data="dataset/data.yaml",
+        data="dataset3/data.yaml",
         epochs=max_epochs, # Jumlah epoch total
         imgsz=640,
         # resume=True, # Aktifkan jika ingin melanjutkan pelatihan dari checkpoint terakhir
